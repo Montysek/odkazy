@@ -1,0 +1,36 @@
+// build.gradle
+
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0'
+
+// --- 1. Nastavení Javy 21 ---
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// --- 2. Nastavení Kódování UTF-8 ---
+// Toto řeší chybu s "unmappable character (0x81) for encoding windows-1250"
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+// --- Konec nastavení kódování ---
+
+repositories {
+    mavenCentral()
+    // Úložiště pro Paper/Spigot API
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    // Závislost na Paper API pro verzi 1.21.4
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+}
+
+jar {
+    archiveFileName = "${rootProject.name}-${archiveVersion.get()}.jar"
+}

@@ -1,0 +1,23 @@
+# plugin.yml
+name: Odkazy
+version: 1.0
+main: org.example.Odkazy
+api-version: 1.21
+authors: [MontyFCB]
+description: Plugin pro snadné klikací odkazy a konfiguraci.
+
+commands:
+  discord:
+    description: Zobrazí klikací odkaz na Discord.
+    usage: /discord
+  youtube:
+    description: Zobrazí klikací odkaz na YouTube.
+    usage: /youtube
+  obchod:
+    description: Zobrazí klikací odkaz na obchod.
+    usage: /obchod
+  odkazy: # NOVÝ PŘÍKAZ PRO RELOAD
+    description: Administrační příkazy pro plugin Odkazy.
+    usage: /odkazy reload
+    permission: odkazy.reload # Oprávnění pro reload
+    permission-message: §cNemáš oprávnění k použití tohoto příkazu.
