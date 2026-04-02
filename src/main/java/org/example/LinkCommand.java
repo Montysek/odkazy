@@ -10,45 +10,36 @@ import org.bukkit.entity.Player;
 
 public class LinkCommand implements CommandExecutor {
 
-    private final Odkazy plugin; // Uložíme instanci pluginu pro reloadConfig()
+    private final Odkazy plugin;
     private FileConfiguration config;
 
-    // Konstruktor
     public LinkCommand(Odkazy plugin) {
         this.plugin = plugin;
-        this.config = plugin.getConfig(); // Získáme aktuální konfiguraci
+        this.config = plugin.getConfig();
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        // --- NOVÁ LOGIKA PRO PŘÍKAZ /ODKAZY RELOAD ---
         if (label.equalsIgnoreCase("odkazy")) {
-            // Kontrola, zda zadal argument 'reload'
             if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
 
-                // Kontrola oprávnění (sender.hasPermission se postará o kontrolu oprávnění z plugin.yml)
                 if (sender.hasPermission("odkazy.reload") || sender.isOp() || !(sender instanceof Player)) {
 
-                    // Provede skutečný reload konfigurace ze souboru
                     plugin.reloadConfig();
 
-                    // Aktualizujeme interní referenci na konfiguraci pro okamžité použití
                     this.config = plugin.getConfig();
 
                     sender.sendMessage("§a[Odkazy] Konfigurace byla úspěšně znovu načtena.");
                     return true;
                 }
             } else {
-                // Zobrazí nápovědu, pokud zadají jen /odkazy
                 sender.sendMessage("§e[Odkazy] Použití: /odkazy reload - Znovu načte konfiguraci.");
                 return true;
             }
         }
-        // --- KONEC NOVÉ LOGIKY ---
 
 
-        // Původní logika pro klikací odkazy (vyžaduje hráče)
         String pouzeHrac = config.getString("Systemove_Zpravy.Pouze_Hrac", "§cTento příkaz mohou používat pouze hráči.");
 
         if (!(sender instanceof Player)) {
@@ -80,7 +71,6 @@ public class LinkCommand implements CommandExecutor {
         return true;
     }
 
-    // Metoda pro vytvoření a odeslání zprávy s klikacím odkazem (beze změny)
     private void sendClickableLink(Player player, String prefix, String message, String url) {
 
         String finalPrefix = prefix != null ? prefix.replace("&", "§") : "§7[LINK]";
