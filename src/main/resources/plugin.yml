@@ -1,4 +1,3 @@
-# plugin.yml
 name: Odkazy
 version: 1.0
 main: org.example.Odkazy
@@ -16,8 +15,8 @@ commands:
   obchod:
     description: Zobrazí klikací odkaz na obchod.
     usage: /obchod
-  odkazy: # NOVÝ PŘÍKAZ PRO RELOAD
+  odkazy:
     description: Administrační příkazy pro plugin Odkazy.
     usage: /odkazy reload
-    permission: odkazy.reload # Oprávnění pro reload
+    permission: odkazy.reload
     permission-message: §cNemáš oprávnění k použití tohoto příkazu.
