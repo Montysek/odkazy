@@ -1,25 +1,16 @@
-# config.yml
-# Zde si můžete nastavit vlastní odkazy a texty zpráv.
-# Změny provedené v tomto souboru na serveru se načtou po /reload nebo restartu.
-
-# --- ODKAZY ---
 Odkazy:
   Discord_URL: "https://discord.gg/TVUJ_SERVER"
   YouTube_URL: "https://youtube.com/TVUJ_KANAL"
   Obchod_URL: "https://obchod.TVUJ_SERVER.cz"
 
-# --- ZPRÁVY ---
 Zpravy:
   Discord_Zprava: "Klikni pro náš Discord!"
   YouTube_Zprava: "Odeber náš YouTube kanál!"
   Obchod_Zprava: "Podpoř server na našem obchodě!"
 
-# --- CHYBOVÉ HLÁŠENÍ A PREFIXY ---
 Systemove_Zpravy:
-  # Zpráva pro konzoli, která nemůže zadat command
   Pouze_Hrac: "§cTento příkaz mohou používat pouze hráči."
 
-  # Barevné prefixy (Použijte kód barvy § nebo &)
   Prefix_Discord: "§9DISCORD"
   Prefix_YouTube: "§cYOUTUBE"
   Prefix_Obchod: "§6OBCHOD"
