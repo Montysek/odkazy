@@ -10,15 +10,12 @@ public class Odkazy extends JavaPlugin {
 
         this.saveDefaultConfig();
 
-        // Předáme instanci pluginu! (LinkCommand ji potřebuje pro reloadConfig())
         LinkCommand executor = new LinkCommand(this);
 
-        // Zaregistrování existujících příkazů
         getCommand("discord").setExecutor(executor);
         getCommand("youtube").setExecutor(executor);
         getCommand("obchod").setExecutor(executor);
 
-        // Zaregistrování NOVÉHO příkazu pro administraci
         getCommand("odkazy").setExecutor(executor);
     }
 
